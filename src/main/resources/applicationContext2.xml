@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="messageBean" class="sample4.MessageBeanImpl">
+        <!-- 메시지 내용으로 'Spring'을 생성자 주입 -->
+        <constructor-arg>
+            <value>Spring</value>
+        </constructor-arg>
+
+        <!-- greeting의 속성값 설정 -->
+        <property name="greeting">
+            <value>Hello, </value>
+        </property>
+
+        <!-- outputter 빈을 ref로 참조 -->
+        <property name="outputter">
+            <ref bean="outputter" />
+        </property>
+    </bean>
+
+    <bean id="outputter" class="sample4.FileOutputter">
+        <property name="filePath">
+            <value>out.txt</value>
+        </property>
+    </bean>
+
+</beans>
