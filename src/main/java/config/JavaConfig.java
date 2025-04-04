@@ -40,6 +40,7 @@ public class JavaConfig {
 
     @Bean
     public OperatorBean operatorBean() {
+    	// return new PlusOp(); -> @Autowired를 사용하는 방법
 		OperatorBean op=new PlusOp();
 		op.setOperand1(op1()); // @Autowired 대신 직접 호출
 		op.setOperand2(op2());
